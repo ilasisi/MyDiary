@@ -6,11 +6,17 @@
     android:padding="20dp"
     tools:context="mydiary.bloomydev.ilasisi.mydiary.LoginActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"/>
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="250dp"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -24,28 +30,28 @@
         android:visibility="gone"
         />
 
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text=""
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textColor="#000"
-        />
+    <!--<TextView-->
+        <!--android:id="@+id/textViewName"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text=""-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="20dp"-->
+        <!--android:textColor="#000"-->
+        <!--/>-->
 
-    <TextView
-        android:id="@+id/textViewEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textViewName"
-        android:text=""
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textColor="#000"
-        />
+    <!--<TextView-->
+        <!--android:id="@+id/textViewEmail"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_below="@+id/textViewName"-->
+        <!--android:text=""-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="20dp"-->
+        <!--android:textColor="#000"-->
+        <!--/>-->
 
 </RelativeLayout>

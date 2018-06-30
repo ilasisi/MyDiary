@@ -1,14 +1,11 @@
 package mydiary.bloomydev.ilasisi.mydiary;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 // Importing Google GMS Auth API Libraries.
@@ -49,32 +46,32 @@ public class LoginActivity extends AppCompatActivity {
     // Google Sign In button .
     com.google.android.gms.common.SignInButton signInButton;
 
-    // TextView to Show Login User Email and Name.
-    TextView LoginUserName, LoginUserEmail;
+//    // TextView to Show Login User Email and Name.
+//    TextView LoginUserName, LoginUserEmail;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
 
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
 
         SignOutButton= (Button) findViewById(R.id.sign_out);
 
-        LoginUserName = (TextView) findViewById(R.id.textViewName);
-
-        LoginUserEmail = (TextView) findViewById(R.id.textViewEmail);
+//        LoginUserName = (TextView) findViewById(R.id.textViewName);
+//
+//        LoginUserEmail = (TextView) findViewById(R.id.textViewEmail);
 
         signInButton = (com.google.android.gms.common.SignInButton)findViewById(R.id.sign_in_button);
 
         // Getting Firebase Auth Instance into firebaseAuth object.
         firebaseAuth = FirebaseAuth.getInstance();
-
-        // Hiding the TextView on activity start up time.
-        LoginUserEmail.setVisibility(View.GONE);
-        LoginUserName.setVisibility(View.GONE);
+//
+//        // Hiding the TextView on activity start up time.
+//        LoginUserEmail.setVisibility(View.GONE);
+//        LoginUserName.setVisibility(View.GONE);
 
         // Creating and Configuring Google Sign In object.
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -149,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
 
         AuthCredential authCredential = GoogleAuthProvider.getCredential(googleSignInAccount.getIdToken(), null);
 
-        Toast.makeText(LoginActivity.this,""+ authCredential.getProvider(),Toast.LENGTH_LONG).show();
+        Toast.makeText(LoginActivity.this,"Signing in with "+ authCredential.getProvider(),Toast.LENGTH_LONG).show();
 
         firebaseAuth.signInWithCredential(authCredential)
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -161,21 +158,23 @@ public class LoginActivity extends AppCompatActivity {
                             // Getting Current Login user details.
                             FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
-                            // Showing Log out button.
-                            SignOutButton.setVisibility(View.VISIBLE);
-
-                            // Hiding Login in button.
-                            signInButton.setVisibility(View.GONE);
-
-                            // Showing the TextView.
-                            LoginUserEmail.setVisibility(View.VISIBLE);
-                            LoginUserName.setVisibility(View.VISIBLE);
-
-                            // Setting up name into TextView.
-                            LoginUserName.setText("NAME =  "+ firebaseUser.getDisplayName().toString());
-
-                            // Setting up Email into TextView.
-                            LoginUserEmail.setText("Email =  "+ firebaseUser.getEmail().toString());
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+//                            // Showing Log out button.
+//                            SignOutButton.setVisibility(View.VISIBLE);
+//
+//                            // Hiding Login in button.
+//                            signInButton.setVisibility(View.GONE);
+//
+//                            // Showing the TextView.
+//                            LoginUserEmail.setVisibility(View.VISIBLE);
+//                            LoginUserName.setVisibility(View.VISIBLE);
+//
+//                            // Setting up name into TextView.
+//                            LoginUserName.setText("NAME =  "+ firebaseUser.getDisplayName().toString());
+//
+//                            // Setting up Email into TextView.
+//                            LoginUserEmail.setText("Email =  "+ firebaseUser.getEmail().toString());
 
                         }else {
                             Toast.makeText(LoginActivity.this,"Something Went Wrong",Toast.LENGTH_LONG).show();
@@ -205,9 +204,9 @@ public class LoginActivity extends AppCompatActivity {
         // After logout Hiding sign out button.
         SignOutButton.setVisibility(View.GONE);
 
-        // After logout setting up email and name to null.
-        LoginUserName.setText(null);
-        LoginUserEmail.setText(null);
+//        // After logout setting up email and name to null.
+//        LoginUserName.setText(null);
+//        LoginUserEmail.setText(null);
 
         // After logout setting up login button visibility to visible.
         signInButton.setVisibility(View.VISIBLE);
