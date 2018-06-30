@@ -11,7 +11,8 @@
         android:label="@string/app_name" >
         <activity
             android:label="@string/app_name"
-            android:name="mydiary.bloomydev.ilasisi.mydiary.LoginActivity" >
+            android:name="mydiary.bloomydev.ilasisi.mydiary.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,15 +21,15 @@
         </activity>
         <activity
             android:label="@string/oneNote"
-            android:name="mydiary.bloomydev.ilasisi.mydiary.DetailsActivity" >
+            android:name="mydiary.bloomydev.ilasisi.mydiary.DetailsActivity">
         </activity>
         <activity
             android:label="Add New Note"
-            android:name="mydiary.bloomydev.ilasisi.mydiary.AddNote" >
+            android:name="mydiary.bloomydev.ilasisi.mydiary.AddNote">
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name="mydiary.bloomydev.ilasisi.mydiary.MainActivity" >
+            android:name="mydiary.bloomydev.ilasisi.mydiary.MainActivity">
         </activity>
     </application>
 
